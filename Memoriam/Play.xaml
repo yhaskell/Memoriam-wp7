@@ -1,0 +1,65 @@
+﻿<phone:PhoneApplicationPage 
+    x:Class="Memoriam.Play"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d" d:DesignHeight="696" d:DesignWidth="480"
+    shell:SystemTray.IsVisible="True" Loaded="PhoneApplicationPage_Loaded">
+    
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--TitlePanel contains the name of the application and page title-->
+        <Grid x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,14">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <TextBlock x:Name="ApplicationTitle" Text="MEMORIAM" Style="{StaticResource PhoneTextNormalStyle}" Margin="12,0,36,0" />
+            <TextBlock Text="LEVEL" Style="{StaticResource PhoneTextNormalStyle}" Grid.Column="1" Margin="4,0" />
+            <TextBlock x:Name="LevelView" Text="1" Style="{StaticResource PhoneTextNormalStyle}" Grid.Column="2" Foreground="{StaticResource PhoneAccentBrush}" Margin="1,0" />
+            <TextBlock Text="/" Style="{StaticResource PhoneTextNormalStyle}" Grid.Column="3" Margin="3,0" />
+            <TextBlock x:Name="LevelsView" Text="14" Style="{StaticResource PhoneTextNormalStyle}" Grid.Column="4" Foreground="{StaticResource PhoneAccentBrush}" Margin="1,0" />
+            <TextBlock x:Name="LivesView" Text="4" Style="{StaticResource PhoneTextNormalStyle}" Grid.Column="6" Foreground="{StaticResource PhoneAccentBrush}" />
+            <TextBlock Text="LIVES LEFT" Style="{StaticResource PhoneTextNormalStyle}" Grid.Column="7" Margin="12,0" />
+            <TextBlock Text="sequence:" Grid.Row="1" Style="{StaticResource PhoneTextNormalStyle}" Margin="12,0,36,0"/>
+            <StackPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="9" Orientation="Horizontal" Margin="12,0" HorizontalAlignment="Right">
+                <TextBlock x:Name="SeqBefore" Text="1 2 3 " Style="{StaticResource PhoneTextNormalStyle}" Margin="0"/>
+                <TextBlock x:Name="SeqCurrent" Text="4 " Style="{StaticResource PhoneTextNormalStyle}" Foreground="{StaticResource PhoneAccentBrush}" Margin="0"/>
+                <TextBlock x:Name="SeqAfter" Text="5 6 7 " Style="{StaticResource PhoneTextNormalStyle}" Margin="0"/>
+            </StackPanel>
+        </Grid>
+
+        <!--ContentPanel - place additional content here-->
+        <Canvas x:Name="ContentPanel" Grid.Row="1" Width="460" Height="610" />
+    </Grid>
+    
+    <phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True">
+            <shell:ApplicationBarIconButton x:Name="Ok" IsEnabled="True" IconUri="/Images/ok.png" Text="OK" Click="Ok_Click"/>
+            <!--shell:ApplicationBarIconButton x:Name="Refresh" IsEnabled="False" IconUri="/Images/refresh.png" Text="Reload level" -->
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>
+
+</phone:PhoneApplicationPage>
